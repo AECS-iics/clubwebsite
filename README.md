@@ -1,1 +1,1 @@
-# clubwebsite
+# AECS Club Website
