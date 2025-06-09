@@ -40,7 +40,48 @@ Together, Nuxt 3, Vuetify, and Tailwind CSS make a powerful and flexible front-e
 
 Scroll down to learn how to set up this project on your machine and start contributing! 🚀
 
+
+## 🛠️ Getting Set Up for the First Time
+
+If you're completely new to web development, follow these steps to install the tools needed to run and contribute to this project.
+
+---
+
+### 📥 Install Git
+
+Git is a version control system that lets you download code and collaborate with others.
+
+- Go to: [https://git-scm.com/downloads](https://git-scm.com/downloads)
+- Choose your operating system (Windows, macOS, or Linux)
+- Download and install Git using the default settings
+- After installation, open your terminal or command prompt and run:
+
+  ```bash
+  git --version
+
+### 📦 Installing Node.js (and npm)
+
+Node.js allows you to run JavaScript code outside the browser. It comes with **npm** (Node Package Manager), which is used to install packages and run scripts for this project.
+
+1. Visit the official Node.js website:  
+   👉 [https://nodejs.org/](https://nodejs.org/)
+
+2. Download the **LTS (Long-Term Support)** version for your operating system.
+
+3. Open the downloaded installer and follow the installation steps.  
+   > You can safely keep all the default options checked.
+
+4. Once installation is complete, open your terminal or command prompt and run the following commands to verify:
+
+   ```bash
+   node --version
+   npm --version
+
+
+
 # Nuxt 3
+
+
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
