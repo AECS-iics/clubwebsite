@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # AECS Club Website
 =======
 
@@ -76,4 +76,4 @@ bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
->>>>>>> 0391cca (Push repository)
+
