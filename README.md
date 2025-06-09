@@ -1,7 +1,46 @@
+# 🌐 AECS Club Website – Built with Nuxt 3, Vuetify & Tailwind CSS
 
-# AECS Club Website
-=======
+Welcome to the official repository for our club website!
 
+This project is built using a modern front-end stack that allows us to develop fast, responsive, and maintainable web experiences:
+
+## 🧠 Nuxt 3
+
+[Nuxt 3](https://nuxt.com/) is a powerful framework built on top of Vue 3. It offers:
+
+- File-based routing
+- Auto imports
+- Server-side rendering (SSR)
+- Static site generation
+
+Nuxt helps keep our codebase clean and scalable while offering powerful features out of the box.
+
+## 🎨 Vuetify
+
+[Vuetify](https://vuetifyjs.com/) is a Vue UI library that follows Google’s Material Design principles. It provides ready-to-use, customizable components like:
+
+- Buttons
+- Navigation bars
+- Cards
+- Dialogs
+
+With Vuetify, we can build a polished and professional UI quickly and consistently.
+
+## 💨 Tailwind CSS
+
+[Tailwind CSS](https://tailwindcss.com/) is a utility-first CSS framework. Instead of writing traditional CSS, we use small, reusable utility classes directly in our templates to style elements. This enables:
+
+- Faster prototyping
+- A more consistent design system
+- Easy customization
+
+---
+
+Together, Nuxt 3, Vuetify, and Tailwind CSS make a powerful and flexible front-end stack that supports clean code, responsive design, and great user experiences.
+
+Scroll down to learn how to set up this project on your machine and start contributing! 🚀
+
+# Nuxt 3
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
