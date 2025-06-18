@@ -55,8 +55,7 @@ const title = 'AECS Club'
 
 const navItems = [
   { title: 'Home', to: '/', icon: 'mdi-home' },
-  { title: 'About', to: '/about', icon: 'mdi-information' },
-  { title: 'Events', to: '/events', icon: 'mdi-calendar' },
+  { title: 'Projects', to: '/events', icon: 'mdi-cog' },
   { title: 'Contact', to: '/contact', icon: 'mdi-email' }
 ]
 </script>
