@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app class="bg-grey-lighten-5">
     <!-- Top App Bar -->
     <v-app-bar app color="primary" dark>
       <v-app-bar-nav-icon @click="drawer = !drawer" />
