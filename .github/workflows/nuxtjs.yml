@@ -28,7 +28,7 @@ jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
-     env:
+    env:
       NUXT_PUBLIC_GOOGLE_SCRIPT_URL: ${{ secrets.NUXT_PUBLIC_GOOGLE_SCRIPT_URL }}
     steps:
       - name: Checkout
