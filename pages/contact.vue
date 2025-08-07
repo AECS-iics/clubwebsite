@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid class="pa-10" color = "black">
+  <v-container fluid class="pa-10 pa-sm-6 pa-xs-2" color = "black">
     <v-row class="text-left mt-6">
       <v-col>
         <h1>
