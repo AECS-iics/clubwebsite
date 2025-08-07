@@ -26,6 +26,12 @@ export default defineNuxtConfig({
     },
   ],
 
+  runtimeConfig: {
+    public: {
+      GOOGLE_SCRIPT_URL: process.env.NUXT_PUBLIC_GOOGLE_SCRIPT_URL,
+    },
+  },
+
   vite: {
     vue: {
       template: {

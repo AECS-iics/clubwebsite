@@ -52,26 +52,53 @@
       <!-- Right Panel - Contact Form -->
       <v-col cols="12" md="8" class="poppins-font">
         <v-card  elevation = "0" class="pa-10 rounded-0 rounded-e-lg shadow-0 remove-rounded-mobile" height="700px">
-          <v-form>
+          <v-form ref="form">
             <v-row dense>
               <v-col cols="12" md="6">
-                <v-text-field label="First Name" variant="outlined" hide-details></v-text-field>
+                <v-text-field
+                  v-model="firstName"
+                  label="First Name"
+                  variant="outlined"
+                  :rules="[v => !!v || 'First name is required']"
+                  hide-details
+                ></v-text-field>
               </v-col>
               <v-col cols="12" md="6">
-                <v-text-field label="Last Name" variant="outlined" hide-details></v-text-field>
+                <v-text-field
+                  v-model="lastName"
+                  label="Last Name"
+                  variant="outlined"
+                  :rules="[v => !!v || 'Last name is required']"
+                  hide-details
+                ></v-text-field>
               </v-col>
               <v-col cols="12" md="6">
-                <v-text-field label="Email" variant="outlined" hide-details></v-text-field>
+                <v-text-field
+                  v-model="email"
+                  label="Email"
+                  variant="outlined"
+                  :rules="[v => !!v || 'Email is required']"
+                  hide-details
+                ></v-text-field>
               </v-col>
               <v-col cols="12" md="6">
-                <v-text-field label="Phone Number" variant="outlined" hide-details append-inner-icon="mdi-content-copy"></v-text-field>
+                <v-text-field label="Phone Number" variant="outlined" hide-details append-inner-icon="mdi-content-copy" v-model="phone"></v-text-field>
               </v-col>
               <v-col cols="12">
-                <v-textarea label="Message" variant="outlined" rows="4" placeholder="Write your message..." hide-details></v-textarea>
+                <v-textarea
+                  v-model="message"
+                  label="Message"
+                  variant="outlined"
+                  rows="4"
+                  placeholder="Write your message..."
+                  :rules="[v => !!v || 'Message is required']"
+                  hide-details
+                ></v-textarea>
               </v-col>
             </v-row>
 
             <v-btn
+              @click="handleSubmit"
               color="#1E4666"
               class="mt-16 ms-auto"
               size="x-large"
@@ -87,6 +114,11 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
+import { useRuntimeConfig } from 'nuxt/app';
+
+const config = useRuntimeConfig();
+
 useHead({
   link: [
     {
@@ -95,6 +127,51 @@ useHead({
     }
   ]
 })
+
+const form = ref(null);
+
+const firstName = ref('');
+const lastName = ref('');
+const email = ref('');
+const phone = ref('');
+const message = ref('');
+
+const handleSubmit = async () => {
+  const isValid = await form.value.validate();
+  if (!isValid) {
+    alert("Please fill all required fields.");
+    return;
+  }
+
+  const formData = {
+    firstName: firstName.value,
+    lastName: lastName.value,
+    email: email.value,
+    phone: phone.value,
+    message: message.value,
+  };
+
+  try {
+    const res = await fetch(config.public.GOOGLE_SCRIPT_URL, {
+      method: 'POST',
+      body: JSON.stringify(formData),
+      headers: {
+        'Content-Type': 'application/json',
+       
+      }
+    });
+
+    if (res.ok) {
+      alert("Message sent!");
+      form.value.reset();
+    } else {
+      alert("Something went wrong.");
+    }
+  } catch (err) {
+    console.error(err);
+    alert("Error sending message.");
+  }
+};
 </script>
 
 <style scoped>
