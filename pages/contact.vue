@@ -153,12 +153,12 @@ const handleSubmit = async () => {
 
   try {
     const res = await fetch(config.public.GOOGLE_SCRIPT_URL, {
+      redirect: 'follow',
       method: 'POST',
-      body: JSON.stringify(formData),
       headers: {
-        'Content-Type': 'application/json',
-       
-      }
+        'Content-Type': 'text/plain;charset=utf-8'
+      },
+      body: JSON.stringify(formData)
     });
 
     if (res.ok) {
