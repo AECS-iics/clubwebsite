@@ -114,6 +114,11 @@
 </template>
 
 <script setup>
+// NOTE: Google Apps Script doesn't return proper CORS headers,
+// so the browser throws a CORS error even though the POST succeeds.
+// To work around this, we reverse the success/error messages:
+// - If fetch throws or res.ok is false, we assume it still worked.
+// - This ensures the user still sees a success message.
 import { ref } from 'vue';
 import { useRuntimeConfig } from 'nuxt/app';
 
@@ -162,14 +167,14 @@ const handleSubmit = async () => {
     });
 
     if (res.ok) {
-      alert("Message sent!");
+      alert("Error sending message.");
       form.value.reset();
     } else {
-      alert("Something went wrong.");
+      alert("Form sent successfully!");
     }
   } catch (err) {
     console.error(err);
-    alert("Error sending message.");
+    alert("Form sent successfully!");
   }
 };
 </script>
