@@ -1,10 +1,10 @@
 <template>
-  <v-container fluid class="pa-10 pa-sm-6 pa-xs-2" color = "black">
+  <v-container fluid class="responsive-padding" color = "black">
     <v-row class="text-left mt-6">
       <v-col>
-        <h1>
-          <span class="text-warning font-weight-bold teacher-font" style="font-size: 60px;">CONTACT</span>
-          <span class="text-primary-darken-4 teacher-font" style="font-size: 60px;"> US</span>
+        <h1 class = "responsive-title">
+          <span class="text-warning font-weight-bold teacher-font">CONTACT</span>
+          <span class="text-primary-darken-4 teacher-font"> US</span>
         </h1>
       </v-col>
     </v-row>
@@ -118,6 +118,36 @@ body {
 @media (max-width: 959px) {
   .remove-rounded-mobile {
     border-radius: 0 !important;
+  }
+}
+.responsive-padding {
+  padding: 40px; /* equivalent to pa-10 */
+}
+
+@media (max-width: 960px) {
+  .responsive-padding {
+    padding: 24px; /* roughly pa-6 */
+  }
+}
+
+@media (max-width: 600px) {
+  .responsive-padding {
+    padding: 12px; /* roughly pa-2 */
+  }
+}
+.responsive-title {
+  font-size: 60px;
+}
+
+@media (max-width: 960px) {
+  .responsive-title {
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 600px) {
+  .responsive-title {
+    font-size: 40px;
   }
 }
 </style>
