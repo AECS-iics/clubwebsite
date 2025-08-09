@@ -102,6 +102,7 @@
               color="#1E4666"
               class="mt-16 ms-auto"
               size="x-large"
+              :disabled="!isFormValid"
               style="font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: normal; letter-spacing: normal; text-transform: none;"
             >
               <div class="pa-4">Send Message</div>
@@ -119,7 +120,7 @@
 // To work around this, we reverse the success/error messages:
 // - If fetch throws or res.ok is false, we assume it still worked.
 // - This ensures the user still sees a success message.
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { useRuntimeConfig } from 'nuxt/app';
 
 const config = useRuntimeConfig();
@@ -140,6 +141,13 @@ const lastName = ref('');
 const email = ref('');
 const phone = ref('');
 const message = ref('');
+
+const isFormValid = computed(() => {
+  return firstName.value.trim() &&
+         lastName.value.trim() &&
+         email.value.trim() &&
+         message.value.trim();
+});
 
 const handleSubmit = async () => {
   const isValid = await form.value.validate();
