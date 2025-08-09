@@ -150,8 +150,8 @@ const isFormValid = computed(() => {
 });
 
 const handleSubmit = async () => {
-  const isValid = await form.value.validate();
-  if (!isValid) {
+  const { valid } = await form.value.validate();
+  if (!valid) {
     alert("Please fill all required fields.");
     return;
   }
