@@ -31,9 +31,9 @@
           </v-col>
 
           <!-- Image -->
-          <v-col cols="12" md="5" class="d-flex justify-center">
+          <v-col cols="12" md="5" class="d-flex justify-center"> <!-- To add image-->
             <v-img
-              src="https://via.placeholder.com/400x300"
+              src="https://via.placeholder.com/400x300" 
               alt="Students working"
               class="rounded-lg"
               max-width="400"
@@ -87,14 +87,14 @@ useHead({
 })
 
 const committee = [
-  { name: "AUSTIN GAN", role: "Vice President Of Administration", img: "/images/austin.png" },
-  { name: "PHONE MYINT MYAT", role: "President", img: "/images/peter.png" },
-  { name: "MIN THANT KYAW", role: "Vice President Of Activities", img: "/images/thanaktih.png" }, 
-  { name: "ADAM DALI", role: "Projects Officer", img: "/images/adam.png" },
-  { name: "TEE KAI YO", role: "PR Officer", img: "/images/Kaiyao.png" },
-  { name: "ARR MAN TUN", role: "Secretary", img: "/images/Jericho.png" },
-  { name: "Committee Member 7", role: "Role Placeholder", img: "/images/hauyo.png" },
-  { name: "Committee Member 8", role: "Role Placeholder", img: "/images/Yamamoto.png" } 
+  { name: "AUSTIN GAN", role: "Vice President Of Administration", img: "images/austin.png" },
+  { name: "PHONE MYINT MYAT", role: "President", img: "images/peter.png" },
+  { name: "MIN THANT KYAW", role: "Vice President Of Activities", img: "images/thanaktih.png" }, 
+  { name: "ADAM DALI", role: "Projects Officer", img: "images/adam.png" },
+  { name: "TEE KAI YO", role: "PR Officer", img: "images/Kaiyao.png" },
+  { name: "ARR MAN TUN", role: "Secretary", img: "images/Jericho.png" },
+  { name: "KAN YAMAMOTO", role: "Treasurer", img: "images/Yamamoto.png" },
+  { name: "SEAN", role: "Internal Affairs Officer", img: "images/hauyo.png" } //To be changed to picture of Sean
 ]
 </script>
 
