@@ -6,7 +6,7 @@
           <v-card class="mb-4">
             <v-card-title class="text-h6">Section {{ i }}</v-card-title>
             <v-card-text>
-              Events Test {{ i }}
+              In construction
             </v-card-text>
           </v-card>
         </v-col>

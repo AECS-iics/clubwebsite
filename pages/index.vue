@@ -3,40 +3,47 @@
     <!-- About Section -->
     <section class="full-width-section" style="background-color:#0d1b2a; color:white; font-family:'Poppins', sans-serif;">
       <v-container fluid class="py-16 px-8">
-        <v-row align="start" justify="space-between" class = "pa-5">
+        <v-row align="start" justify="space-between" class = "pa-10 pt-10">
           <!-- Text -->
           <v-col cols="12" md="6" style = "text-align: justify;">
             <h2  style = "color:#0175C1;;"class="text-h2 font-weight-light mb-4 title-font">
               ABOUT <span style="color:#ffb703; font-weight: bold;">AECS</span>
             </h2>
-            <p>
-              Created in June 2025, INTI’s AECS (Applied Engineering and Computer Science Club) aims
-              to provide our club members with real hands-on experience to help them in their future
-              career prospects.
-            </p>
-            <p>
-              AECS is a space created for students in the Engineering and Computer Science pathways
-              to hone and apply their skills in student led projects (such as this website you’re
-              looking at right now)!
-            </p>
-            <p>
-              If you’re someone who’s down to learn new skills, get some experience, make friends,
-              and have fun; we are open to new members of any skill; beginners, experienced and
-              anywhere in between.
-            </p>
+            <div class = "body-text1">
+
+              <p>
+                Created in June 2025, INTI’s AECS (Applied Engineering and Computer Science Club) aims
+                to provide our club members with real hands-on experience to help them in their future
+                career prospects.
+              </p>
+              <br>
+              <p>
+                AECS is a space created for students in the Engineering and Computer Science pathways
+                to hone and apply their skills in student led projects (such as this website you’re
+                looking at right now)!
+              </p>
+              <br>
+              <p>
+                If you’re someone who’s down to learn new skills, get some experience, make friends,
+                and have fun; we are open to new members of any skill; beginners, experienced and
+                anywhere in between.
+              </p>
+              <br>
+            </div>
             <v-btn color="primary" class="mt-4">Register</v-btn>
             <div class="mt-2">
+              <br>
               <div style="color:#ffb703;">Interested in becoming a member? Sign up now!</div>
             </div>
           </v-col>
 
           <!-- Image -->
-          <v-col cols="12" md="5" class="d-flex justify-center"> <!-- To add image-->
+          <v-col cols="12" md="6" class="d-flex justify-center"> <!-- To add image-->
             <v-img
-              src="https://via.placeholder.com/400x300" 
+              src="\images\homepage.jpg" 
               alt="Students working"
               class="rounded-lg"
-              max-width="400"
+              max-width="950"
             />
           </v-col>
         </v-row>
@@ -89,12 +96,12 @@ useHead({
 const committee = [
   { name: "AUSTIN GAN", role: "Vice President Of Administration", img: "images/austin.png" },
   { name: "PHONE MYINT MYAT", role: "President", img: "images/peter.png" },
-  { name: "MIN THANT KYAW", role: "Vice President Of Activities", img: "images/thanaktih.png" }, 
-  { name: "ADAM DALI", role: "Projects Officer", img: "images/adam.png" },
+  { name: "MIN THANT KYAW", role: "Vice President Of Activities", img: "images/Jericho.png" }, 
+  { name: "TEIK HOONG CHEAH", role: "Projects Officer", img: "images/teikhoong.png" },
   { name: "TEE KAI YO", role: "PR Officer", img: "images/Kaiyao.png" },
-  { name: "ARR MAN TUN", role: "Secretary", img: "images/Jericho.png" },
+  { name: "ARR MAN TUN", role: "Head of Research", img: "images/Jericho.png" },
   { name: "KAN YAMAMOTO", role: "Treasurer", img: "images/Yamamoto.png" },
-  { name: "SEAN", role: "Internal Affairs Officer", img: "images/hauyo.png" } //To be changed to picture of Sean
+  { name: "SEAN", role: "Internal Affairs Officer", img: "images/sean2.png" } 
 ]
 </script>
 
@@ -105,5 +112,14 @@ const committee = [
 .full-width-section {
   width: 100vw;
   margin-left: calc(-50vw + 50%);
+}
+.body-text1{
+  font-size: 16pt;
+}
+
+@media (max-width:767px) {
+  .body-text1 {
+    font-size: 16px;
+  }
 }
 </style>
