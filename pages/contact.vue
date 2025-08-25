@@ -4,7 +4,7 @@
 
 
 
-    <v-row class="text-left mt-16">
+    <v-row class="text-left mt-5">
       <v-col>
         <h1 class = "responsive-title">
           <span class="text-warning font-weight-bold teacher-font">CONTACT</span>
@@ -13,7 +13,7 @@
       </v-col>
     </v-row>
     
-    <v-row class="mt-10" align="center" justify="center" no-gutters>
+    <v-row class="mt-8 mb-16" align="center" justify="center" no-gutters>
       <!-- Left Panel - Contact Info -->
       <v-col cols="12" md="4" class="poppins-font">
         <v-card elevation = "0" class="pa-10 rounded-0 rounded-s-lg shadow-0 remove-rounded-mobile" color="#1E4666" height="700px">
@@ -114,7 +114,7 @@
           </v-form>
         </v-card>
       </v-col>
-    </v-row>
+    </v-row >
    
     
   </v-container>

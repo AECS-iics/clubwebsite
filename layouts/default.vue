@@ -3,13 +3,18 @@
     <!-- Top App Bar -->
     <v-app-bar app color="#194666" dark height="80">
       <!-- Logo -->
+      
+     
       <v-img
-        src="/images/logo2.png"
-        alt="AECS Club Logo"
-        max-height="90"
-        max-width="150"
-        contain
-      />
+  src="/images/logo2.png"
+  alt="AECS Club Logo"
+  max-height="90"
+  max-width="150"
+  contain
+  class="cursor-pointer"
+  @click="$router.push('/')"
+/>
+    
       <v-spacer />
 
       <!-- Desktop Navigation (icon + text) -->

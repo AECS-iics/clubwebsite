@@ -30,7 +30,11 @@
               </p>
               <br>
             </div>
-            <v-btn color="primary" class="mt-4">Register</v-btn>
+            <v-btn 
+            color="primary" 
+            class="mt-4 teachers-font"
+            href = "https://docs.google.com/forms/d/e/1FAIpQLSepcpW4vP7dppZ6vtstqAi7pp1LwYtAAO-rNx84RuGcxxVlGg/viewform"
+            style = "font-family: 'Poppins', sans-serif ; letter-spacing: normal;">Register</v-btn>
             <div class="mt-2">
               <br>
               <div style="color:#ffb703;">Interested in becoming a member? Sign up now!</div>
