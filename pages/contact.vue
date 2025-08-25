@@ -1,6 +1,10 @@
 <template>
   <v-container fluid class="responsive-padding" color = "black">
-    <v-row class="text-left mt-6">
+   
+
+
+
+    <v-row class="text-left mt-16">
       <v-col>
         <h1 class = "responsive-title">
           <span class="text-warning font-weight-bold teacher-font">CONTACT</span>
@@ -8,7 +12,7 @@
         </h1>
       </v-col>
     </v-row>
-
+    
     <v-row class="mt-10" align="center" justify="center" no-gutters>
       <!-- Left Panel - Contact Info -->
       <v-col cols="12" md="4" class="poppins-font">
@@ -28,9 +32,9 @@
 
           <v-row class="mb-4" align="center">
             <v-col cols="auto">
-              <v-icon>mdi-phone</v-icon>
+              <v-icon>mdi-instagram</v-icon>
             </v-col>
-            <v-col>+1012 3456 789</v-col>
+            <v-col>aecs.iics</v-col>
           </v-row>
 
           <v-row class="mb-4" align="center">
@@ -111,6 +115,8 @@
         </v-card>
       </v-col>
     </v-row>
+   
+    
   </v-container>
 </template>
 
@@ -122,6 +128,7 @@
 // - This ensures the user still sees a success message.
 import { ref, computed } from 'vue';
 import { useRuntimeConfig } from 'nuxt/app';
+import { useHead } from '#imports'
 
 const config = useRuntimeConfig();
 
