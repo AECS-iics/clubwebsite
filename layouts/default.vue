@@ -104,7 +104,7 @@
 
         <span class="text-caption">
           &copy; {{ new Date().getFullYear() }} AECS Club. All rights reserved.
-          <div style="color: #2B2828;">adam dali was here haha</div>
+          <div style="color: #2B2828;">adam dali was here haha</div>  <!--Easter egg hahahaahaha-->
         </span>
       </v-container>
     </v-footer>

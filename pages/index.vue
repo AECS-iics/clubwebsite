@@ -103,9 +103,9 @@ const committee = [
   { name: "MIN THANT KYAW", role: "Vice President Of Activities", img: "images/Jericho.png" }, 
   { name: "TEIK HOONG CHEAH", role: "Projects Officer", img: "images/teikhoong.png" },
   { name: "TEE KAI YO", role: "PR Officer", img: "images/Kaiyao.png" },
-  { name: "ARR MAN TUN", role: "Head of Research", img: "images/Jericho.png" },
+  { name: "LOH WEN KONG", role: "Head of Research", img: "images/WenKong.png" },
   { name: "KAN YAMAMOTO", role: "Treasurer", img: "images/Yamamoto.png" },
-  { name: "SEAN", role: "Internal Affairs Officer", img: "images/sean2.png" } 
+  { name: "CHUA RONG SEAN", role: "Internal Affairs Officer", img: "images/sean2.png" } 
 ]
 </script>
 
