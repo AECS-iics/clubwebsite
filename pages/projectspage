@@ -1,0 +1,350 @@
+<template>
+  <!-- ====================
+       MAIN CONTAINER
+       ==================== -->
+  <div class="bg-gray-50 min-h-screen">
+    
+    <!-- ====================
+         HERO SECTION / HEADER
+         Uses: Vuetify v-container for layout, TailwindCSS for colors/spacing
+         ==================== -->
+    <div class="bg-blue-600 text-white">
+      <v-container class="py-16">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">
+          Student Engineering Projects
+        </h1>
+        <p class="text-xl text-blue-100 max-w-3xl">
+          Discover innovative solutions created by our talented engineering students. 
+          From robotics to renewable energy, explore groundbreaking projects that shape the future.
+        </p>
+      </v-container>
+    </div>
+
+    <v-container class="py-12">
+      
+      <!-- ====================
+           SEARCH BAR COMPONENT
+           Uses: Vuetify v-text-field with prepend icon
+           ==================== -->
+      <div class="mb-8">
+        <v-text-field
+          v-model="searchQuery"
+          placeholder="Search projects by name or description..."
+          prepend-inner-icon="mdi-magnify"
+          variant="outlined"
+          class="max-w-2xl"
+          density="comfortable"
+        ></v-text-field>
+      </div>
+
+      <!-- ====================
+           FILTER BUTTONS (CATEGORIES)
+           Uses: Vuetify v-chip-group for button group functionality
+           ==================== -->
+      <div class="mb-12">
+        <div class="flex items-center gap-2 mb-4">
+          <v-icon>mdi-filter</v-icon>
+          <h2 class="text-lg font-semibold text-gray-700">Filter by Category</h2>
+        </div>
+        
+        <v-chip-group
+          v-model="selectedCategory"
+          mandatory
+          selected-class="bg-blue-600 text-white"
+        >
+          <v-chip
+            v-for="category in categories"
+            :key="category"
+            :value="category"
+            class="px-6 py-2"
+            variant="outlined"
+          >
+            {{ category }}
+          </v-chip>
+        </v-chip-group>
+      </div>
+
+      <!-- ====================
+           PROJECT CARDS GRID
+           Uses: Vuetify v-row and v-col for responsive grid
+           ==================== -->
+      <v-row>
+        <v-col
+          v-for="project in filteredProjects"
+          :key="project.id"
+          cols="12"
+          md="6"
+          lg="4"
+        >
+          <!-- ====================
+               INDIVIDUAL PROJECT CARD
+               Uses: Vuetify v-card component
+               ==================== -->
+          <v-card class="h-full hover:shadow-2xl transition-shadow duration-300">
+            
+            <!-- ====================
+                 PROJECT IMAGE/PHOTO
+                 Uses: Vuetify v-img for optimized image loading
+                 ==================== -->
+            <div class="relative">
+              <v-img
+                :src="project.image"
+                :alt="project.title"
+                height="200"
+                cover
+                class="hover:scale-105 transition-transform duration-300"
+              ></v-img>
+              
+              <!-- Status Badge - positioned absolutely over image -->
+              <v-chip
+                :color="project.status === 'Completed' ? 'green' : 'yellow'"
+                class="absolute top-4 right-4"
+                size="small"
+              >
+                {{ project.status }}
+              </v-chip>
+            </div>
+
+            <!-- ====================
+                 PROJECT CONTENT SECTION
+                 Uses: Vuetify v-card-text for content area
+                 ==================== -->
+            <v-card-text class="pb-0">
+              
+              <!-- Category Label - uses orange color (secondary) -->
+              <v-chip
+                color="orange"
+                size="small"
+                class="mb-3"
+              >
+                {{ project.category }}
+              </v-chip>
+
+              <!-- Project Title -->
+              <h3 class="text-xl font-bold text-gray-800 mb-2">
+                {{ project.title }}
+              </h3>
+
+              <!-- Project Description -->
+              <p class="text-gray-600 mb-4 line-clamp-3">
+                {{ project.description }}
+              </p>
+
+              <!-- ====================
+                   PROJECT METADATA (Date & Team)
+                   Uses: Vuetify v-icon for icons
+                   ==================== -->
+              <div class="space-y-2 mb-4">
+                <!-- Date -->
+                <div class="flex items-center gap-2 text-sm text-gray-600">
+                  <v-icon size="small">mdi-calendar</v-icon>
+                  <span>{{ project.date }}</span>
+                </div>
+
+                <!-- Team Members Count -->
+                <div class="flex items-center gap-2 text-sm text-gray-600">
+                  <v-icon size="small">mdi-account-group</v-icon>
+                  <span>{{ project.team.length }} team members</span>
+                </div>
+              </div>
+            </v-card-text>
+
+            <!-- ====================
+                 CALL-TO-ACTION BUTTON
+                 Uses: Vuetify v-btn with blue primary color
+                 ==================== -->
+            <v-card-actions class="px-4 pb-4">
+              <v-btn
+                color="blue-darken-1"
+                variant="flat"
+                block
+                append-icon="mdi-open-in-new"
+              >
+                View Project Details
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-col>
+      </v-row>
+
+      <!-- ====================
+           NO RESULTS MESSAGE
+           Displayed when filters return no projects
+           ==================== -->
+      <div v-if="filteredProjects.length === 0" class="text-center py-16">
+        <p class="text-xl text-gray-500">
+          No projects found matching your criteria.
+        </p>
+      </div>
+
+      <!-- ====================
+           FOOTER CALL-TO-ACTION SECTION
+           Uses: TailwindCSS for styling, Vuetify v-btn for button
+           ==================== -->
+      <div class="mt-16 bg-blue-600 rounded-xl p-8 md:p-12 text-center text-white">
+        <h2 class="text-3xl font-bold mb-4">
+          Have a Project Idea?
+        </h2>
+        <p class="text-blue-100 mb-6 max-w-2xl mx-auto">
+          Join our community of innovators and bring your engineering vision to life. 
+          Get access to resources, mentorship, and funding opportunities.
+        </p>
+        <v-btn
+          color="orange"
+          size="large"
+          variant="flat"
+          class="px-8"
+        >
+          Submit Your Project
+        </v-btn>
+      </div>
+    </v-container>
+  </div>
+</template>
+
+<script setup>
+import { ref, computed } from 'vue'
+
+// ====================
+// COLOR SCHEME NOTES
+// ====================
+// Primary: Blue (blue-600, blue-darken-1) - used in header, buttons, active chips
+// Secondary: Orange - used for category badges and CTA button
+// Background: Gray-50 - used for page background
+// Cards: White (default v-card background)
+
+// ====================
+// STATE MANAGEMENT
+// Uses Vue 3 Composition API with ref()
+// ====================
+const selectedCategory = ref('All')
+const searchQuery = ref('')
+
+// ====================
+// CATEGORIES FOR FILTERING
+// ====================
+const categories = [
+  'All',
+  'Robotics',
+  'Renewable Energy',
+  'Civil Engineering',
+  'Biomedical',
+  'Mechanical',
+  'Environmental'
+]
+
+// ====================
+// PROJECT DATA
+// This would typically come from an API call or database
+// ====================
+const projectsData = [
+  {
+    id: 1,
+    title: "Autonomous Delivery Robot",
+    category: "Robotics",
+    description: "A self-navigating robot designed to deliver packages across campus using computer vision and LiDAR sensors.",
+    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=500&fit=crop",
+    team: ["Alex Johnson", "Maria Garcia", "James Chen"],
+    date: "Fall 2024",
+    status: "Completed"
+  },
+  {
+    id: 2,
+    title: "Solar Panel Efficiency Optimizer",
+    category: "Renewable Energy",
+    description: "Machine learning system that predicts optimal solar panel angles based on weather patterns and seasonal data.",
+    image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&h=500&fit=crop",
+    team: ["Sarah Williams", "Mohammed Ali"],
+    date: "Spring 2024",
+    status: "In Progress"
+  },
+  {
+    id: 3,
+    title: "Smart Traffic Management System",
+    category: "Civil Engineering",
+    description: "IoT-based solution to reduce urban traffic congestion using real-time data analytics and adaptive signal control.",
+    image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&h=500&fit=crop",
+    team: ["David Park", "Emily Rodriguez", "Kevin Zhang", "Lisa Thompson"],
+    date: "Fall 2024",
+    status: "Completed"
+  },
+  {
+    id: 4,
+    title: "Biomedical Monitoring Wearable",
+    category: "Biomedical",
+    description: "Non-invasive wearable device for continuous monitoring of vital signs with real-time health alerts.",
+    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=500&fit=crop",
+    team: ["Jennifer Lee", "Robert Brown"],
+    date: "Spring 2025",
+    status: "In Progress"
+  },
+  {
+    id: 5,
+    title: "3D Printed Prosthetic Hand",
+    category: "Mechanical",
+    description: "Low-cost, customizable prosthetic hand with sensory feedback, designed for accessibility in developing regions.",
+    image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&h=500&fit=crop",
+    team: ["Michael Scott", "Angela Martin", "Dwight Schrute"],
+    date: "Fall 2023",
+    status: "Completed"
+  },
+  {
+    id: 6,
+    title: "Water Purification System",
+    category: "Environmental",
+    description: "Portable water filtration system using graphene-based filters for emergency disaster relief scenarios.",
+    image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=500&fit=crop",
+    team: ["Sophia Martinez", "Oliver Jackson"],
+    date: "Spring 2024",
+    status: "Completed"
+  }
+]
+
+// ====================
+// FILTERING LOGIC
+// Uses Vue 3 computed property for reactive filtering
+// Filters based on: selected category AND search query
+// ====================
+const filteredProjects = computed(() => {
+  return projectsData.filter(project => {
+    const matchesCategory = selectedCategory.value === 'All' || project.category === selectedCategory.value
+    const matchesSearch = project.title.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
+                          project.description.toLowerCase().includes(searchQuery.value.toLowerCase())
+    return matchesCategory && matchesSearch
+  })
+})
+</script>
+
+<style scoped>
+/* ====================
+   CUSTOM STYLES
+   Additional CSS for effects not covered by Tailwind/Vuetify
+   ==================== */
+
+/* Limit description text to 3 lines with ellipsis */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Smooth transitions for hover effects */
+.transition-shadow {
+  transition: box-shadow 0.3s ease;
+}
+
+.transition-transform {
+  transition: transform 0.3s ease;
+}
+
+/* Hover effect for images - slight zoom */
+.hover\:scale-105:hover {
+  transform: scale(1.05);
+}
+
+/* Hover effect for cards - enhanced shadow */
+.hover\:shadow-2xl:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+</style>
